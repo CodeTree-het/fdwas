@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Het Patel | MLExplorer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="selection:bg-indigo-500/40 overflow-x-hidden">
+
+    <div id="splash-overlay">
+        <h1 class="splash-title">HET <span class="text-indigo-500">PATEL</span></h1>
+        <button class="explorer-btn" onclick="startPortfolio()">Explorer Me</button>
+    </div>
+
+    <div id="main-view">
+        <div class="galaxy-container">
+            <div class="stars stars-small" id="starfield"></div>
+            <div class="planet planet-1"></div>
+            <div class="planet planet-2"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-carbon opacity-10"></div>
+        </div>
+
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 border-b border-transparent py-6">
+            <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+                <div class="flex items-center gap-2 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold group-hover:rotate-[360deg] transition-transform duration-700 shadow-lg">H</div>
+                    <span class="font-bold tracking-tighter text-xl uppercase text-white font-black">HET<span class="text-indigo-400">.PATEL</span></span>
+                </div>
+                <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
+                    <a href="#home" class="hover:text-indigo-400 transition-colors text-white font-bold">Home</a>
+                    <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+                    <a href="#education" class="hover:text-indigo-400 transition-colors">Education</a>
+                    <a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a>
+                    <a href="#work" class="hover:text-indigo-400 transition-colors text-white">Work</a>
+                    <a href="#contact" class="hover:text-indigo-400 transition-colors text-white">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <header id="home" class="relative pt-36 pb-16 px-6 max-w-7xl mx-auto z-10">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6 text-center lg:text-left reveal">
+                    <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-black tracking-[0.25em] uppercase shadow-lg">
+                        DATA SCIENCE & AI/ML EXPLORER
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[1.1] uppercase text-white">
+                        HET <br /> 
+                        <span class="bg-indigo-600 px-6 py-1 rounded-2xl inline-block mt-2 shadow-[0_0_40px_rgba(79,70,229,0.5)] text-white">PATEL.</span>
+                    </h1>
+                    
+                    <div class="terminal-window rounded-2xl border border-white/10 p-5 font-mono h-52 relative overflow-hidden group max-w-lg mx-auto lg:mx-0">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+                            </div>
+                            <div class="text-[8px] uppercase font-bold tracking-widest text-slate-600">het_patel ~ python3.11</div>
+                        </div>
+                        <div id="terminal-content" class="leading-relaxed text-[10px] md:text-xs text-indigo-100 whitespace-pre"></div>
+                    </div>
+
+                    <div class="flex justify-center lg:justify-start gap-8 pt-4">
+                        <a href="https://github.com/CodeTree-het" target="_blank" class="text-slate-400 hover:text-white transition-all hover:-translate-y-2 text-3xl"><i class="fa-brands fa-github any-time-rotation"></i></a>
+                        <a href="https://linkedin.com/in/hetpatell-1508-" target="_blank" class="text-slate-400 hover:text-indigo-400 transition-all hover:-translate-y-2 text-3xl"><i class="fa-brands fa-linkedin-in any-time-rotation-reverse"></i></a>
+                        <a href="https://www.instagram.com/hetpatell-1508" target="_blank" class="text-slate-400 hover:text-pink-500 transition-all hover:-translate-y-2 text-3xl"><i class="fa-brands fa-instagram any-time-rotation"></i></a>
+                        <a href="mailto:patel.het3260@gmail.com" class="text-slate-400 hover:text-indigo-400 transition-all hover:-translate-y-2 text-3xl"><i class="fa-solid fa-envelope any-time-rotation-reverse"></i></a>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block reveal" style="transition-delay: 200ms;">
+                    <div class="absolute -inset-10 bg-indigo-600/10 blur-[120px] rounded-full animate-pulse-slow"></div>
+                    <div class="relative border border-white/10 rounded-[3.5rem] bg-[#0a0a0c]/90 backdrop-blur-3xl p-14 shadow-2xl ring-1 ring-white/5 transition-transform hover:scale-[1.02] duration-700">
+                        <div class="flex flex-col items-center mb-10 text-center">
+                            <div class="relative mb-8">
+                                <div class="w-48 h-48 rounded-full border-[4px] border-indigo-500/40 p-2 relative shadow-[0_0_30px_rgba(99,102,241,0.2)]">
+                                    <div class="w-full h-full rounded-full bg-slate-900 overflow-hidden shadow-inner relative z-0">
+                                        <img src="myimage.jpeg" alt="Het Patel" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+                                    </div>
+                                    <div class="absolute bottom-1 -right-4 bg-indigo-600 text-white text-[12px] font-black px-5 py-2 rounded-full shadow-2xl border border-indigo-400 animate-float z-10 cursor-default">Hii!! 👋</div>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl font-black tracking-tighter mb-2 uppercase text-white">HET PATEL</h2>
+                            <p class="text-indigo-400 font-mono text-xs uppercase tracking-[0.4em] opacity-90">MCA @ PES University</p>
+                        </div>
+                        <div class="flex justify-center gap-6 overflow-x-auto no-scrollbar text-indigo-400/50">
+                            <div class="p-5 bg-white/5 rounded-3xl border border-white/5 hover:border-indigo-500/40 hover:text-indigo-400 transition-all w-16 h-16 flex items-center justify-center text-2xl"><i class="fa-solid fa-file-code any-time-rotation"></i></div>
+                            <div class="p-5 bg-white/5 rounded-3xl border border-white/5 hover:border-indigo-500/40 hover:text-indigo-400 transition-all w-16 h-16 flex items-center justify-center text-2xl"><i class="fa-solid fa-microchip any-time-rotation-reverse"></i></div>
+                            <div class="p-5 bg-white/5 rounded-3xl border border-white/5 hover:border-indigo-500/40 hover:text-indigo-400 transition-all w-16 h-16 flex items-center justify-center text-2xl"><i class="fa-solid fa-database any-time-rotation"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="about" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5 reveal">
+            <h2 class="text-xs uppercase tracking-[0.4em] font-black text-slate-500 mb-16 flex items-center gap-4 text-white">
+                <span class="h-px w-16 bg-slate-800"></span> Identity Module
+            </h2>
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-20">
+                <div class="space-y-10">
+                    <h3 class="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none text-white text-shadow">The <span class="text-indigo-500 italic">MLExplorer</span>.</h3>
+                    <p class="text-xl text-slate-400 font-light leading-relaxed">
+                        I am <span class="text-white font-medium">Het Patel</span>, specialized in extracting intelligence from raw data using predictive modeling and deep learning architectures.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-indigo-400">Researcher</div>
+                        <div class="px-6 py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-purple-400">Engineer</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-10 rounded-[3rem] card shadow-2xl flex flex-col items-center text-center">
+                        <div class="p-5 bg-indigo-500/10 rounded-2xl mb-6 text-indigo-400 text-3xl any-time-rotation"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h4 class="font-black uppercase text-sm tracking-widest text-white mb-4">Strategy Engine</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed text-center">Predictive analytics for complex data ecosystems.</p>
+                    </div>
+                    <div class="p-10 rounded-[3rem] card shadow-2xl flex flex-col items-center text-center">
+                        <div class="p-5 bg-purple-500/10 rounded-2xl mb-6 text-purple-400 text-3xl any-time-rotation-reverse"><i class="fa-solid fa-bolt"></i></div>
+                        <h4 class="font-black uppercase text-sm tracking-widest text-white mb-4">Neural Precision</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed text-center">High-impact AI for healthcare and integrity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-10 rounded-[3rem] bg-[#0c0c0e]/80 border border-white/5 shadow-2xl flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-2xl text-indigo-400 mb-8 any-time-rotation"><i class="fa-solid fa-brain"></i></div>
+                    <h5 class="text-white font-black uppercase text-base mb-4 tracking-widest">Neural Processing</h5>
+                    <p class="text-slate-500 text-[11px] font-mono uppercase tracking-wider leading-relaxed text-center">Vision & NLP Transformer architectures.</p>
+                </div>
+                <div class="p-10 rounded-[3rem] bg-[#0c0c0e]/80 border border-white/5 shadow-2xl flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-2xl text-purple-400 mb-8 any-time-rotation-reverse"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h5 class="text-white font-black uppercase text-base mb-4 tracking-widest">Predictive Ops</h5>
+                    <p class="text-slate-500 text-[11px] font-mono uppercase tracking-wider leading-relaxed text-center">High accuracy real-time forecasting models.</p>
+                </div>
+                <div class="p-10 rounded-[3rem] bg-[#0c0c0e]/80 border border-white/5 shadow-2xl flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-2xl text-cyan-400 mb-8 any-time-rotation"><i class="fa-solid fa-network-wired"></i></div>
+                    <h5 class="text-white font-black uppercase text-base mb-4 tracking-widest">Data Infra</h5>
+                    <p class="text-slate-500 text-[11px] font-mono uppercase tracking-wider leading-relaxed text-center">Scalable ETL and warehouse automation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/5 text-shadow text-white reveal">
+            <h2 class="text-xs uppercase tracking-[0.4em] font-black text-slate-500 mb-16 flex items-center gap-4">
+                <span class="h-px w-16 bg-slate-800"></span> Academic Journey
+            </h2>
+            <div class="mb-16 p-12 bg-indigo-950/20 border border-indigo-500/30 rounded-[3rem] text-center card shadow-2xl">
+                <h3 class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.4em] mb-6">Mastery Objective</h3>
+                <p class="text-3xl md:text-4xl font-light italic leading-tight text-white/90">
+                    "Bridging <span class="text-indigo-400 font-bold">Data Architecture</span> and <span class="text-purple-400 font-bold">Cognitive Systems</span> to transform research into intelligent products."
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="group p-12 rounded-[3rem] card shadow-2xl">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400">
+                        <div class="p-5 bg-indigo-500/10 rounded-2xl w-16 h-16 flex items-center justify-center text-3xl shadow-lg"><i class="fa-solid fa-graduation-cap any-time-rotation"></i></div>
+                        <span class="text-[11px] font-black px-4 py-2 rounded-full uppercase bg-indigo-500/20 border border-indigo-500/30">Current</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-3 uppercase tracking-tighter text-white">MCA (Masters)</h3>
+                    <p class="text-slate-400 flex items-center gap-3 mb-8 font-bold uppercase tracking-[0.15em] text-sm"><i class="fa-solid fa-location-dot text-slate-600"></i> PES University, Bangalore</p>
+                </div>
+                <div class="group p-12 rounded-[3rem] card shadow-2xl">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400">
+                        <div class="p-5 bg-indigo-500/10 rounded-2xl w-16 h-16 flex items-center justify-center text-3xl shadow-lg"><i class="fa-solid fa-book-open any-time-rotation-reverse"></i></div>
+                        <span class="text-[11px] font-black px-4 py-2 rounded-full uppercase bg-green-500/20 text-green-400 border border-green-500/20">Certified</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-3 uppercase tracking-tighter text-white">B.Sc. (Info. Tech)</h3>
+                    <p class="text-slate-400 flex items-center gap-3 mb-8 font-bold uppercase tracking-[0.15em] text-sm text-white"><i class="fa-solid fa-location-dot text-slate-600"></i> Uka Tarsadia University</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5 reveal">
+            <h2 class="text-xs uppercase tracking-[0.4em] font-black text-slate-500 mb-16 flex items-center gap-4 text-shadow text-white">
+                <span class="h-px w-16 bg-slate-800"></span> Technical Toolbox
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white text-center">
+                <div class="p-10 rounded-[3rem] card flex flex-col items-center shadow-2xl">
+                    <div class="p-5 bg-purple-500/10 rounded-2xl mb-8 text-purple-400 text-3xl any-time-rotation"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="font-black uppercase text-lg mb-8 tracking-widest text-white">Languages</h3>
+                    <div class="grid grid-cols-2 gap-4 w-full">
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-solid fa-mug-hot text-purple-400 any-time-rotation"></i><p class="text-[9px] mt-2 font-mono uppercase text-white">JAVA</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-solid fa-terminal text-purple-400 any-time-rotation-reverse"></i><p class="text-[9px] mt-2 font-mono uppercase text-center">C / C++</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl col-span-2"><i class="fa-brands fa-php text-purple-400 text-xl any-time-rotation"></i><p class="text-[9px] mt-2 font-mono uppercase font-bold text-white">PHP</p></div>
+                    </div>
+                </div>
+                <div class="p-10 rounded-[3rem] card flex flex-col items-center shadow-2xl">
+                    <div class="p-5 bg-cyan-500/10 rounded-2xl mb-8 text-cyan-400 text-3xl any-time-rotation-reverse"><i class="fa-solid fa-globe"></i></div>
+                    <h3 class="font-black uppercase text-lg mb-8 tracking-widest text-white">Web Stack</h3>
+                    <div class="grid grid-cols-2 gap-4 w-full">
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-brands fa-html5 text-orange-500 any-time-rotation"></i><p class="text-[9px] mt-2 font-mono">HTML5</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-brands fa-react text-cyan-400 any-time-rotation-reverse"></i><p class="text-[9px] mt-2 font-mono uppercase font-bold text-white">REACT</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-brands fa-js text-yellow-400 any-time-rotation"></i><p class="text-[9px] mt-2 font-mono">JS</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-brands fa-bootstrap text-purple-500 any-time-rotation-reverse"></i><p class="text-[9px] mt-2 font-mono">BOOTSTRAP</p></div>
+                    </div>
+                </div>
+                <div class="p-10 rounded-[3rem] card flex flex-col items-center shadow-2xl text-center">
+                    <div class="p-5 bg-indigo-500/10 rounded-2xl mb-8 text-indigo-400 text-3xl any-time-rotation"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="font-black uppercase text-lg mb-8 tracking-widest text-white uppercase text-center">Intelligence</h3>
+                    <div class="grid grid-cols-2 gap-4 w-full text-center">
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-brands fa-python text-blue-400 any-time-rotation-reverse"></i><p class="text-[9px] mt-2 font-mono uppercase text-white">PYTHON</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-solid fa-table text-indigo-300 any-time-rotation"></i><p class="text-[9px] mt-2 font-mono uppercase text-shadow text-white">PANDAS</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-solid fa-chart-line text-indigo-300 any-time-rotation-reverse"></i><p class="text-[9px] mt-2 font-mono uppercase text-white">SEABORN</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-solid fa-calculator text-indigo-300 any-time-rotation"></i><p class="text-[9px] mt-2 font-mono uppercase text-white">NUMPY</p></div>
+                    </div>
+                </div>
+                <div class="p-10 rounded-[3rem] card flex flex-col items-center shadow-2xl">
+                    <div class="p-5 bg-pink-500/10 rounded-2xl mb-8 text-pink-400 text-3xl any-time-rotation-reverse"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 class="font-black uppercase text-lg mb-8 tracking-widest text-white uppercase">Infrastructure</h3>
+                    <div class="grid grid-cols-2 gap-4 w-full text-white">
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-brands fa-github text-white any-time-rotation"></i><p class="text-[9px] mt-2 font-mono uppercase text-white uppercase">GITHUB</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl"><i class="fa-solid fa-database text-blue-400 any-time-rotation-reverse"></i><p class="text-[9px] mt-2 font-mono uppercase shadow-2xl text-white uppercase">MYSQL</p></div>
+                        <div class="p-3 bg-white/5 rounded-2xl col-span-2"><i class="fa-solid fa-leaf text-green-500 any-time-rotation"></i><p class="text-[9px] mt-2 font-mono uppercase shadow-2xl font-bold text-white uppercase">MONGODB</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5 reveal">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div class="space-y-4 text-center md:text-left">
+                    <h2 class="text-xs uppercase tracking-[0.4em] font-black text-slate-500 flex items-center justify-center md:justify-start gap-4 text-white"><span class="h-px w-16 bg-slate-800"></span> Work Archive</h2>
+                    <h3 class="text-5xl font-black uppercase italic tracking-tighter text-white">Impact Reports.</h3>
+                </div>
+                <div class="flex gap-2 p-1.5 bg-[#111114] rounded-2xl border border-white/5 overflow-x-auto no-scrollbar shadow-inner text-white mx-auto md:mx-0">
+                    <button onclick="filterProjects('all')" class="proj-filter-btn px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all bg-indigo-600 text-white shadow-xl shadow-indigo-600/20" data-filter="all">All Projects</button>
+                    <button onclick="filterProjects('complete')" class="proj-filter-btn px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all text-slate-500 hover:bg-white/5" data-filter="complete">Complete Projects</button>
+                    <button onclick="filterProjects('featured')" class="proj-filter-btn px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all text-slate-500 hover:bg-white/5" data-filter="featured">Featured Work</button>
+                </div>
+            </div>
+            
+            <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
+                <div class="card p-8 rounded-[3rem] flex flex-col group reveal shadow-2xl" data-category="complete">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400">
+                        <div class="p-3 bg-indigo-500/10 rounded-2xl w-12 h-12 flex items-center justify-center shadow-lg text-2xl"><i class="fa-solid fa-cart-shopping any-time-rotation"></i></div>
+                        <span class="text-[10px] text-slate-700 font-black tracking-widest uppercase bg-white/[0.03] px-3 py-1 rounded-full">COMPLETE</span>
+                    </div>
+                    <h4 class="text-xl font-black uppercase mb-4 tracking-tight text-white text-center">Woodland Wonder</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 text-center">E-commerce platform for nature-inspired architecture showcasing.</p>
+                </div>
+                <div class="card p-8 rounded-[3rem] flex flex-col group reveal shadow-2xl" data-category="complete">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400">
+                        <div class="p-3 bg-indigo-500/10 rounded-2xl w-12 h-12 flex items-center justify-center shadow-lg text-2xl"><i class="fa-solid fa-clock-rotate-left any-time-rotation-reverse"></i></div>
+                        <span class="text-[10px] text-slate-700 font-black tracking-widest uppercase bg-white/[0.03] px-3 py-1 rounded-full">COMPLETE</span>
+                    </div>
+                    <h4 class="text-xl font-black uppercase mb-4 tracking-tight text-white text-center shadow-2xl">Time Series Forecaster</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 text-center">Predictive model for identifying seasonal trends in datasets.</p>
+                </div>
+                <div class="card p-8 rounded-[3rem] flex flex-col group reveal shadow-2xl" data-category="complete">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400 shadow-2xl">
+                        <div class="p-3 bg-indigo-500/10 rounded-2xl w-12 h-12 flex items-center justify-center shadow-lg text-2xl"><i class="fa-solid fa-screwdriver-wrench any-time-rotation"></i></div>
+                        <span class="text-[10px] text-slate-700 font-black tracking-widest uppercase bg-white/[0.03] px-3 py-1 rounded-full">COMPLETE</span>
+                    </div>
+                    <h4 class="text-xl font-black uppercase mb-4 tracking-tight text-white text-center">Service Provider System</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 text-center shadow-2xl">Household maintenance platform connecting experts with customers.</p>
+                </div>
+                <div class="card p-8 rounded-[3rem] flex flex-col group reveal shadow-2xl" data-category="featured">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400">
+                        <div class="p-3 bg-indigo-500/10 rounded-2xl w-12 h-12 flex items-center justify-center shadow-lg text-2xl shadow-2xl"><i class="fa-solid fa-heart-pulse any-time-rotation-reverse"></i></div>
+                        <span class="text-[10px] text-slate-700 font-black tracking-widest uppercase bg-white/[0.03] px-3 py-1 rounded-full">PROJECT 01</span>
+                    </div>
+                    <h4 class="text-xl font-black uppercase mb-4 tracking-tight text-white text-center">Predictive Healthcare India</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 shadow-2xl text-white/70 text-center">ML model designed to predict disease outbreaks across Indian states.</p>
+                </div>
+                <div class="card p-8 rounded-[3rem] flex flex-col group reveal shadow-2xl" data-category="featured">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400 shadow-2xl">
+                        <div class="p-3 bg-indigo-500/10 rounded-2xl w-12 h-12 flex items-center justify-center shadow-lg text-2xl shadow-2xl"><i class="fa-solid fa-newspaper any-time-rotation"></i></div>
+                        <span class="text-[10px] text-slate-700 font-black tracking-widest uppercase bg-white/[0.03] px-3 py-1 rounded-full shadow-2xl">PROJECT 02</span>
+                    </div>
+                    <h4 class="text-xl font-black uppercase mb-4 tracking-tight text-white text-shadow text-white shadow-2xl text-center">Fake News Detection AI</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 shadow-2xl text-white/70 text-center uppercase">BERT architectures identifying misinformation in social streams.</p>
+                </div>
+                <div class="card p-8 rounded-[3rem] flex flex-col group reveal shadow-2xl" data-category="featured">
+                    <div class="flex justify-between items-start mb-10 text-indigo-400 shadow-2xl">
+                        <div class="p-3 bg-indigo-500/10 rounded-2xl w-12 h-12 flex items-center justify-center shadow-lg text-2xl shadow-2xl"><i class="fa-solid fa-school any-time-rotation-reverse"></i></div>
+                        <span class="text-[10px] text-slate-700 font-black tracking-widest uppercase bg-white/[0.03] px-3 py-1 rounded-full border border-white/5 shadow-2xl">PROJECT 03</span>
+                    </div>
+                    <h4 class="text-xl font-black uppercase mb-4 tracking-tight text-white text-shadow text-white shadow-2xl text-shadow text-center">Education Analysis Reports India</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 shadow-2xl text-white/70 text-center">Visual narratives identifying gaps across Indian infrastructure.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5 reveal">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-12">
+                    <h2 class="text-[clamp(2.5rem,6vw,4rem)] font-black uppercase tracking-tighter leading-[0.9] text-white">
+                        BUILD THE <span class="italic text-indigo-400 font-medium font-bold">FUTURE</span> <br> OF DATA.
+                    </h2>
+                    
+                    <div class="space-y-6 max-w-xl">
+                        <div class="flex items-center justify-between p-8 bg-[#111114] rounded-3xl border border-white/5 shadow-2xl">
+                            <div class="flex items-center gap-6">
+                                <div class="p-4 bg-indigo-500/10 rounded-2xl w-14 h-14 flex items-center justify-center text-indigo-400 shadow-lg"><i class="fa-solid fa-envelope any-time-rotation"></i></div>
+                                <div class="text-left text-white"><p class="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Direct Protocol</p><p class="font-mono text-slate-200">patel.het3260@gmail.com</p></div>
+                            </div>
+                            <button onclick="copyToClipboard('patel.het3260@gmail.com', 'email')" id="btn-copy-email" class="p-4 text-slate-600 hover:text-indigo-400 transition-colors text-2xl shadow-2xl"><i class="fa-solid fa-copy"></i></button>
+                        </div>
+                        <div class="flex items-center justify-between p-8 bg-[#111114] rounded-3xl border border-white/5 shadow-2xl text-center">
+                            <div class="flex items-center gap-6">
+                                <div class="p-4 bg-indigo-500/10 rounded-2xl w-14 h-14 flex items-center justify-center text-indigo-400 shadow-lg"><i class="fa-solid fa-phone any-time-rotation-reverse"></i></div>
+                                <div class="text-left text-white text-center"><p class="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 text-center">Direct Signal</p><p class="font-mono text-slate-200">+91 8780369574</p></div>
+                            </div>
+                            <button onclick="copyToClipboard('+91 8780369574', 'phone')" id="btn-copy-phone" class="p-4 text-slate-600 hover:text-indigo-400 transition-colors text-2xl shadow-2xl"><i class="fa-solid fa-copy shadow-2xl"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#0c0c0e]/90 backdrop-blur-3xl p-12 rounded-[4rem] border border-white/5 shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,70,229,0.1),transparent_60%)]"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="flex items-center gap-4 mb-12 justify-center">
+                            <div class="w-3 h-3 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_15px_#818cf8]"></div>
+                            <h4 class="text-[11px] font-black tracking-[0.5em] uppercase text-indigo-400">Synapse Connect Node</h4>
+                        </div>
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <a href="https://github.com/CodeTree-het" target="_blank" class="p-12 bg-[#141417]/80 rounded-[2.5rem] border border-white/5 transition-all flex flex-col items-center group shadow-xl">
+                                <div class="text-4xl text-slate-400 group-hover:text-white mb-4"><i class="fa-brands fa-github any-time-rotation"></i></div>
+                                <span class="text-[10px] font-black tracking-widest uppercase text-slate-500">GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/hetpatell-1508-" target="_blank" class="p-12 bg-[#141417]/80 rounded-[2.5rem] border border-white/5 transition-all flex flex-col items-center group shadow-xl">
+                                <div class="text-4xl text-slate-400 group-hover:text-blue-500 mb-4"><i class="fa-brands fa-linkedin-in any-time-rotation-reverse"></i></div>
+                                <span class="text-[10px] font-black tracking-widest uppercase text-slate-500 text-center">LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/hetpatell.1508" target="_blank" class="p-12 bg-[#141417]/80 rounded-[2.5rem] border border-white/5 transition-all flex flex-col items-center group shadow-xl text-center">
+                                <div class="text-4xl text-slate-400 group-hover:text-pink-500 mb-4 text-center"><i class="fa-brands fa-instagram any-time-rotation"></i></div>
+                                <span class="text-[10px] font-black tracking-widest uppercase text-slate-500 text-center">Instagram</span>
+                            </a>
+                            <div class="p-12 rounded-[2.5rem] screenshot-mail-glow transition-all flex flex-col items-center group cursor-pointer text-center" onclick="window.location.href='mailto:patel.het3260@gmail.com'">
+                                <div class="text-4xl text-white mb-4 text-center"><i class="fa-solid fa-envelope any-time-rotation-reverse"></i></div>
+                                <span class="text-[10px] font-black tracking-widest uppercase text-white font-black">Mail ID</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-20 px-6 border-t border-white/5 text-center font-black uppercase text-[11px] tracking-[0.5em] text-white/30 shadow-2xl">
+            Created By Het Patel
+            <div class="flex justify-center gap-12 mt-12 opacity-80 shadow-2xl">
+                <a href="#about" class="hover:text-indigo-400 transition-colors uppercase font-black text-white">ABOUT</a>
+                <a href="#work" class="hover:text-indigo-400 transition-colors uppercase font-black text-white">WORK</a>
+                <a href="#contact" class="hover:text-indigo-400 transition-colors uppercase font-black text-white">CONTACT</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

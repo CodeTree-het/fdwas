@@ -1,0 +1,214 @@
+/* --- Global Configuration & Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050507;
+    color: #e2e8f0;
+    overflow: hidden; /* Prevent scrolling during splash screen */
+}
+
+.font-mono { font-family: 'Fira Code', monospace; }
+
+/* --- Galaxy Background Module --- */
+.galaxy-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at center, #11112b 0%, #050507 100%);
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: transparent;
+}
+
+.stars-small {
+    width: 1px; height: 1px;
+    /* Box-shadow is generated dynamically via script.js for variety */
+    animation: starsMove 150s linear infinite;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2000px); }
+}
+
+/* --- Floating Planets Decor --- */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.4;
+    animation: planetFloat 20s ease-in-out infinite alternate;
+}
+
+.planet-1 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle at 30% 30%, #4f46e5, transparent);
+    top: -100px; right: -50px;
+    animation-duration: 30s;
+}
+
+.planet-2 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle at 70% 70%, #7e22ce, transparent);
+    bottom: 10%; left: -50px;
+    animation-duration: 25s;
+}
+
+@keyframes planetFloat {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(30px, 40px) rotate(360deg); }
+}
+
+/* --- Navigation & Header Effects --- */
+.glass-nav {
+    background-color: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bg-carbon {
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+}
+
+.text-shadow {
+    text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+}
+
+/* --- Animations --- */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.any-time-rotation { animation: spin-slow 8s linear infinite; }
+
+@keyframes spin-slow-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+.any-time-rotation-reverse { animation: spin-slow-reverse 10s linear infinite; }
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Components --- */
+.card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: rgba(17, 17, 20, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Terminal Theme */
+.terminal-window {
+    background: rgba(15, 15, 19, 0.9);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(79, 70, 229, 0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.syntax-kw { color: #c678dd; } 
+.syntax-fn { color: #61afef; }    
+.syntax-str { color: #98c379; }  
+.syntax-cmt { color: #5c6370; font-style: italic; }
+
+/* --- Splash Screen --- */
+#splash-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash-title {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.05em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splashIn 1.2s ease forwards;
+}
+@keyframes splashIn { to { opacity: 1; transform: translateY(0); } }
+
+.explorer-btn {
+    margin-top: 2.5rem;
+    padding: 1.2rem 3.5rem;
+    border: 1px solid rgba(129, 140, 248, 0.4);
+    border-radius: 9999px;
+    color: #818cf8;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    transition: all 0.4s;
+    opacity: 0;
+    animation: btnFade 0.8s ease 0.8s forwards;
+    cursor: pointer;
+}
+.explorer-btn:hover {
+    background: #4f46e5;
+    color: white;
+    box-shadow: 0 0 50px rgba(79, 70, 229, 0.5);
+    transform: scale(1.05);
+}
+@keyframes btnFade { to { opacity: 1; } }
+
+/* Main View Visibility */
+#main-view {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease;
+}
+#main-view.ready {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- High-End Contact Node Effects --- */
+.screenshot-mail-glow {
+    background: #141417;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 15px 40px -5px rgba(255, 255, 255, 0.15), 
+                0 0 30px rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.screenshot-mail-glow::after {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 25px;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.25) 0%, transparent 80%);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+/* Utility: Hide Scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
