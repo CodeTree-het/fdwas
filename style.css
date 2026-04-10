@@ -1,214 +1,231 @@
-/* --- Global Configuration & Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+    --accent-purple: #a855f7;
+    --accent-indigo: #6366f1;
+}
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #050507;
+    background-color: #020205;
     color: #e2e8f0;
-    overflow: hidden; /* Prevent scrolling during splash screen */
+    overflow: hidden; 
 }
 
 .font-mono { font-family: 'Fira Code', monospace; }
 
-/* --- Galaxy Background Module --- */
-.galaxy-container {
+/* --- 4K HD GALAXY ENGINE --- */
+.galaxy-background {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(circle at center, #11112b 0%, #050507 100%);
+    background: #020205;
     overflow: hidden;
 }
 
-.stars {
+.star-layer {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0; left: 0; width: 200%; height: 200%;
     background: transparent;
-}
-
-.stars-small {
-    width: 1px; height: 1px;
-    /* Box-shadow is generated dynamically via script.js for variety */
-    animation: starsMove 150s linear infinite;
-}
-
-@keyframes starsMove {
-    from { transform: translateY(0); }
-    to { transform: translateY(-2000px); }
-}
-
-/* --- Floating Planets Decor --- */
-.planet {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(1px);
-    opacity: 0.4;
-    animation: planetFloat 20s ease-in-out infinite alternate;
-}
-
-.planet-1 {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle at 30% 30%, #4f46e5, transparent);
-    top: -100px; right: -50px;
-    animation-duration: 30s;
-}
-
-.planet-2 {
-    width: 200px; height: 200px;
-    background: radial-gradient(circle at 70% 70%, #7e22ce, transparent);
-    bottom: 10%; left: -50px;
-    animation-duration: 25s;
-}
-
-@keyframes planetFloat {
-    from { transform: translate(0, 0) rotate(0deg); }
-    to { transform: translate(30px, 40px) rotate(360deg); }
-}
-
-/* --- Navigation & Header Effects --- */
-.glass-nav {
-    background-color: rgba(10, 10, 12, 0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.bg-carbon {
-    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-}
-
-.text-shadow {
-    text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
-}
-
-/* --- Animations --- */
-@keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-.any-time-rotation { animation: spin-slow 8s linear infinite; }
-
-@keyframes spin-slow-reverse {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-}
-.any-time-rotation-reverse { animation: spin-slow-reverse 10s linear infinite; }
-
-/* Scroll Reveal */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Components --- */
-.card {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    background: rgba(17, 17, 20, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-.card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(129, 140, 248, 0.4);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-}
-
-/* Terminal Theme */
-.terminal-window {
-    background: rgba(15, 15, 19, 0.9);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(79, 70, 229, 0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-}
-.syntax-kw { color: #c678dd; } 
-.syntax-fn { color: #61afef; }    
-.syntax-str { color: #98c379; }  
-.syntax-cmt { color: #5c6370; font-style: italic; }
-
-/* --- Splash Screen --- */
-#splash-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.splash-title {
-    font-size: clamp(3rem, 10vw, 6rem);
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: -0.05em;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: splashIn 1.2s ease forwards;
-}
-@keyframes splashIn { to { opacity: 1; transform: translateY(0); } }
-
-.explorer-btn {
-    margin-top: 2.5rem;
-    padding: 1.2rem 3.5rem;
-    border: 1px solid rgba(129, 140, 248, 0.4);
-    border-radius: 9999px;
-    color: #818cf8;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-size: 0.7rem;
-    transition: all 0.4s;
-    opacity: 0;
-    animation: btnFade 0.8s ease 0.8s forwards;
-    cursor: pointer;
-}
-.explorer-btn:hover {
-    background: #4f46e5;
-    color: white;
-    box-shadow: 0 0 50px rgba(79, 70, 229, 0.5);
-    transform: scale(1.05);
-}
-@keyframes btnFade { to { opacity: 1; } }
-
-/* Main View Visibility */
-#main-view {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1.2s ease;
-}
-#main-view.ready {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* --- High-End Contact Node Effects --- */
-.screenshot-mail-glow {
-    background: #141417;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 15px 40px -5px rgba(255, 255, 255, 0.15), 
-                0 0 30px rgba(255, 255, 255, 0.05);
-    position: relative;
-}
-
-.screenshot-mail-glow::after {
-    content: '';
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 75%;
-    height: 25px;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0.25) 0%, transparent 80%);
-    filter: blur(12px);
     pointer-events: none;
 }
 
-/* Utility: Hide Scrollbar but allow scrolling */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+@keyframes starScroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+#stars-far { animation: starScroll 250s linear infinite; }
+#stars-mid { animation: starScroll 150s linear infinite; }
+#stars-near { animation: starScroll 80s linear infinite; }
+
+.nebula {
+    position: absolute;
+    width: 120vmax;
+    height: 120vmax;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+    filter: blur(120px);
+    animation: nebulaDrift 40s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaDrift {
+    from { transform: translate(-5%, -5%) scale(1); }
+    to { transform: translate(5%, 5%) scale(1.1); }
+}
+
+/* --- PARALLAX RINGED PLANET --- */
+#central-planet {
+    position: fixed;
+    top: 55%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 550px;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.planet-sphere {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at 30% 30%, #f3e8ff 0%, #a855f7 30%, #3b0764 70%, #000 100%);
+    border-radius: 50%;
+    box-shadow: inset -25px -25px 60px rgba(0,0,0,0.9), 0 0 60px rgba(168, 85, 247, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.planet-ring-system {
+    position: absolute;
+    width: 580px;
+    height: 140px;
+    border: 22px solid rgba(216, 180, 254, 0.12);
+    border-radius: 50%;
+    transform: rotateX(74deg) rotateY(-18deg);
+    z-index: 3;
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.1);
+    animation: ringSpin 40s linear infinite;
+}
+
+@keyframes ringSpin {
+    from { transform: rotateX(74deg) rotateY(-18deg) rotateZ(0deg); }
+    to { transform: rotateX(74deg) rotateY(-18deg) rotateZ(360deg); }
+}
+
+.glass-nav {
+    background-color: rgba(2, 2, 5, 0.8);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card {
+    background: rgba(15, 15, 22, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s ease;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--accent-purple); box-shadow: 0 20px 50px -10px rgba(0,0,0,0.8); }
+
+.premium-glow-module {
+    background: #141417 !important;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 20px 60px -10px rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+.premium-glow-module::after {
+    content: ''; position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
+    width: 80%; height: 30px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 80%);
+    filter: blur(15px); pointer-events: none;
+}
+
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.any-time-rotation { animation: spin-slow 8s linear infinite; }
+@keyframes spin-slow-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+.any-time-rotation-reverse { animation: spin-slow-reverse 12s linear infinite; }
+
+.reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+#splash-overlay {
+    position: fixed; inset: 0; z-index: 2000; background: #000;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.splash-title { font-size: clamp(3rem, 12vw, 8rem); font-weight: 900; color: #fff; letter-spacing: -0.05em; text-shadow: 0 0 50px rgba(168, 85, 247, 0.5); }
+
+#main-view { opacity: 0; visibility: hidden; transition: opacity 1.5s ease; }
+#main-view.ready { opacity: 1; visibility: visible; }
+
+.tech-box {
+    width: 48px; height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+}
+.tech-box:hover { background: rgba(168, 85, 247, 0.2); border-color: var(--accent-purple); transform: scale(1.1) translateY(-5px); }
+
+.terminal-window {
+    background: rgba(8, 8, 12, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.7);
+}
+.syntax-kw { color: #c678dd; } .syntax-str { color: #98c379; } .syntax-cmt { color: #5c6370; }
+.text-glow { text-shadow: 0 0 30px rgba(168, 85, 247, 0.5); }
+
+.skill-icon-wrap {
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    display: flex; align-items: center; gap: 0.8rem;
+    transition: all 0.4s;
+}
+.skill-icon-wrap:hover { background: rgba(168, 85, 247, 0.1); border-color: var(--accent-purple); transform: translateX(8px); }
+
+@media (max-width: 1024px) {
+    #central-planet { display: none; }
+}
+
+.headline-main {
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+.headline-sub {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.profile-wrapper {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid #8b5cf6;
+    padding: 4px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+}
+.profile-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #111;
+}
+.gpa-badge {
+    position: absolute;
+    bottom: 4px;
+    right: -10px;
+    background: #2563eb;
+    color: white;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 6px 12px;
+    border-radius: 8px;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.name-container h3 {
+    font-size: 2.25rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #fff;
+    text-transform: capitalize;
+}
+.name-container p {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #94a3b8;
+    margin-top: 4px;
+}
