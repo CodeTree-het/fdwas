@@ -14,6 +14,11 @@ body {
 
 .font-mono { font-family: 'Fira Code', monospace; }
 
+.galaxy-background, #central-planet {
+    -webkit-transform: translateZ(0);
+    transform: translate3d(0,0,0);
+}
+
 /* --- 4K HD GALAXY ENGINE --- */
 .galaxy-background {
     position: fixed;
@@ -66,8 +71,10 @@ body {
     width: 300px; /* Reduced size for mobile stability */
     height: 300px;
     pointer-events: none;
+    visibility: visible !important;
+    opacity: 1 !important;
     z-index: 0; /* Changed from 1 to 0 to stay behind UI but above background */
-    display: flex; /* Force display */
+    display: flex !important; /* Force display */
     align-items: center;
     justify-content: center;
     transition: left 3s cubic-bezier(0.25, 1, 0.5, 1);
