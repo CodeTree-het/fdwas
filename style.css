@@ -171,9 +171,6 @@ body {
 }
 .skill-icon-wrap:hover { background: rgba(168, 85, 247, 0.1); border-color: var(--accent-purple); transform: translateX(8px); }
 
-@media (max-width: 1024px) {
-    #central-planet { display: none; }
-}
 
 .headline-main {
     font-size: clamp(3.5rem, 8vw, 6.5rem);
