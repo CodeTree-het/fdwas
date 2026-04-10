@@ -223,6 +223,13 @@ body {
     color: #fff;
     text-transform: capitalize;
 }
+
+#contact h2.text-7xl {
+    /* This overrides the Tailwind utility classes */
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+    line-height: 1.1 !important;
+}
+
 .name-container p {
     font-size: 0.95rem;
     font-weight: 400;
