@@ -1,251 +1,287 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&family=Fira+Code:wght@400;500&display=swap');
+/* =============================================
+   MOBILE FIX — Het Patel Portfolio
+   Paste this at the BOTTOM of your style.css
+   ============================================= */
 
-:root {
-    --accent-purple: #a855f7;
-    --accent-indigo: #6366f1;
+/* Fix 1: Prevent horizontal scroll on ALL screens */
+* {
+    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #020205;
-    color: #e2e8f0;
-    overflow: hidden; 
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
 }
 
-.font-mono { font-family: 'Fira Code', monospace; }
+/* Fix 2: Planet ring is 580px wide — clips on mobile */
+/* Hide planet on mobile, keep it as background decoration only */
+@media (max-width: 1024px) {
+    #central-planet {
+        left: 50% !important;
+        top: 40% !important;
+        opacity: 0.18 !important;
+        z-index: 0 !important;
+        width: 220px !important;
+        height: 220px !important;
+        pointer-events: none;
+    }
 
-.galaxy-background, #central-planet {
-    -webkit-transform: translateZ(0);
-    transform: translate3d(0,0,0);
+    .planet-sphere {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .planet-ring-system {
+        width: 360px !important;
+        height: 88px !important;
+        border-width: 14px !important;
+    }
 }
 
-/* --- 4K HD GALAXY ENGINE --- */
-.galaxy-background {
-    position: fixed;
-    inset: 0;
-    z-index: -1; /* Ensure this is behind everything */
-    background: #020205;
-    overflow: hidden;
-    /* Add this to prevent mobile clipping */
-    width: 100vw;
-    height: 100vh;
+/* ── TABLET (768px–1024px) ─────────────────── */
+@media (max-width: 1024px) {
+
+    .headline-main {
+        font-size: clamp(2.8rem, 9vw, 4.5rem);
+    }
+
+    .headline-sub {
+        font-size: clamp(2.4rem, 8vw, 4rem);
+    }
 }
 
-.star-layer {
-    position: absolute;
-    top: 0; left: 0; width: 200%; height: 200%;
-    background: transparent;
-    pointer-events: none;
+/* ── MOBILE (max 768px) ───────────────────── */
+@media (max-width: 768px) {
+
+    /* --- Hero section --- */
+    #home {
+        padding-top: 100px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        min-height: auto !important;
+    }
+
+    /* Headline sizes */
+    .headline-main {
+        font-size: clamp(2.4rem, 10vw, 3.5rem) !important;
+    }
+
+    .headline-sub {
+        font-size: clamp(2rem, 9vw, 3rem) !important;
+    }
+
+    /* Profile row: stack vertically and center */
+    .flex.flex-col.md\:flex-row.items-center.gap-10 {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px !important;
+        text-align: center !important;
+    }
+
+    /* Profile image smaller */
+    .profile-wrapper {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .gpa-badge {
+        font-size: 9px !important;
+        padding: 4px 8px !important;
+        right: -6px !important;
+    }
+
+    /* Name */
+    .name-container h3 {
+        font-size: 1.6rem !important;
+        text-align: center !important;
+    }
+
+    .name-container p {
+        text-align: center !important;
+    }
+
+    /* Tech icons — center them */
+    .flex.flex-wrap.justify-center.lg\:justify-start.gap-4 {
+        justify-content: center !important;
+    }
+
+    .tech-box {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    /* Terminal window */
+    .terminal-window {
+        margin: 0 !important;
+        padding: 16px !important;
+        border-radius: 20px !important;
+        height: auto !important;
+        min-height: 200px !important;
+        font-size: 0.72rem !important;
+        max-width: 100% !important;
+    }
+
+    /* --- About section --- */
+    #about {
+        padding: 48px 20px !important;
+    }
+
+    #about h3 {
+        font-size: clamp(2.5rem, 10vw, 4rem) !important;
+    }
+
+    #about p.text-2xl {
+        font-size: 1.1rem !important;
+    }
+
+    /* About cards */
+    .premium-glow-module {
+        padding: 28px 20px !important;
+        border-radius: 2rem !important;
+    }
+
+    /* --- Skills section --- */
+    #skills {
+        padding: 48px 20px !important;
+    }
+
+    /* Skills grid: 1 column on mobile */
+    #skills .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+        grid-template-columns: 1fr !important;
+    }
+
+    #skills .card {
+        padding: 28px 20px !important;
+        border-radius: 2rem !important;
+    }
+
+    /* --- Education section --- */
+    #education {
+        padding: 48px 20px !important;
+    }
+
+    #education .card {
+        padding: 28px 20px !important;
+        border-radius: 2rem !important;
+    }
+
+    #education h3.text-4xl {
+        font-size: 1.6rem !important;
+        text-align: center !important;
+    }
+
+    /* --- Work section --- */
+    #work {
+        padding: 48px 20px !important;
+    }
+
+    #work h3.text-6xl {
+        font-size: 2.2rem !important;
+    }
+
+    /* Project filter buttons */
+    .flex.gap-3.p-2.bg-white\/5 {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    /* Project cards */
+    #project-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    #project-grid .card {
+        padding: 24px 18px !important;
+        border-radius: 2rem !important;
+    }
+
+    /* --- Contact section --- */
+    #contact {
+        padding: 48px 20px !important;
+    }
+
+    #contact h2.text-7xl {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Contact cards */
+    #contact .card.rounded-\[3rem\] {
+        padding: 16px !important;
+        border-radius: 1.5rem !important;
+    }
+
+    #contact .font-mono.text-lg {
+        font-size: 0.8rem !important;
+    }
+
+    /* Social grid */
+    #contact .grid.grid-cols-2 {
+        gap: 12px !important;
+    }
+
+    #contact .grid.grid-cols-2 a,
+    #contact .grid.grid-cols-2 div {
+        padding: 24px 12px !important;
+        border-radius: 1.5rem !important;
+    }
+
+    /* Navbar */
+    .glass-nav {
+        padding: 12px 16px !important;
+    }
+
+    /* General section padding */
+    section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
 }
 
-@keyframes starScroll {
-    from { transform: translateY(0); }
-    to { transform: translateY(-1000px); }
-}
+/* ── SMALL PHONES (max 480px) ─────────────── */
+@media (max-width: 480px) {
 
-#stars-far { animation: starScroll 250s linear infinite; }
-#stars-mid { animation: starScroll 150s linear infinite; }
-#stars-near { animation: starScroll 80s linear infinite; }
+    #central-planet {
+        opacity: 0.1 !important;
+        width: 160px !important;
+        height: 160px !important;
+    }
 
-.nebula {
-    position: absolute;
-    width: 120vmax;
-    height: 120vmax;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
-    filter: blur(120px);
-    animation: nebulaDrift 40s ease-in-out infinite alternate;
-}
+    .planet-sphere {
+        width: 110px !important;
+        height: 110px !important;
+    }
 
-@keyframes nebulaDrift {
-    from { transform: translate(-5%, -5%) scale(1); }
-    to { transform: translate(5%, 5%) scale(1.1); }
-}
+    .planet-ring-system {
+        width: 260px !important;
+        height: 64px !important;
+    }
 
-/* --- PARALLAX RINGED PLANET --- */
-#central-planet {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px; /* Reduced size for mobile stability */
-    height: 200px;
-    pointer-events: none;
-    visibility: visible !important;
-    opacity: 0.25 !important;
-    z-index: 0; /* Changed from 1 to 0 to stay behind UI but above background */
-    display: flex !important; /* Force display */
-    align-items: center;
-    justify-content: center;
-    transition: left 3s cubic-bezier(0.25, 1, 0.5, 1);
-}
+    .headline-main {
+        font-size: 2rem !important;
+    }
 
-.planet-sphere {
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle at 30% 30%, #f3e8ff 0%, #a855f7 30%, #3b0764 70%, #000 100%);
-    border-radius: 50%;
-    box-shadow: inset -25px -25px 60px rgba(0,0,0,0.9), 0 0 60px rgba(168, 85, 247, 0.3);
-    position: relative;
-    z-index: 2;
-}
+    .headline-sub {
+        font-size: 1.8rem !important;
+    }
 
-.planet-ring-system {
-    position: absolute;
-    width: 360px;
-    height: 90px;
-    border-width: 14px;
-    border: 22px solid rgba(216, 180, 254, 0.12);
-    border-radius: 50%;
-    transform: rotateX(74deg) rotateY(-18deg);
-    z-index: 3;
-    box-shadow: 0 0 40px rgba(168, 85, 247, 0.1);
-    animation: ringSpin 40s linear infinite;
-}
+    .name-container h3 {
+        font-size: 1.35rem !important;
+    }
 
-@keyframes ringSpin {
-    from { transform: rotateX(74deg) rotateY(-18deg) rotateZ(0deg); }
-    to { transform: rotateX(74deg) rotateY(-18deg) rotateZ(360deg); }
-}
+    .terminal-window {
+        font-size: 0.65rem !important;
+        padding: 12px !important;
+    }
 
-.glass-nav {
-    padding: 10px 16px;
-    background-color: rgba(2, 2, 5, 0.8);
-    backdrop-filter: blur(30px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+    .tech-box {
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 10px !important;
+    }
 
-.card {
-    margin: 0 8px;
-    background: rgba(15, 15, 22, 0.7);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.5s ease;
-}
-.card:hover { transform: translateY(-10px); border-color: var(--accent-purple); box-shadow: 0 20px 50px -10px rgba(0,0,0,0.8); }
-
-.premium-glow-module {
-    background: #141417 !important;
-    border-bottom: 3px solid rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 20px 60px -10px rgba(255, 255, 255, 0.15);
-    position: relative;
-}
-.premium-glow-module::after {
-    content: ''; position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
-    width: 80%; height: 30px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 80%);
-    filter: blur(15px); pointer-events: none;
-}
-
-@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.any-time-rotation { animation: spin-slow 8s linear infinite; }
-@keyframes spin-slow-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-.any-time-rotation-reverse { animation: spin-slow-reverse 12s linear infinite; }
-
-.reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-
-#splash-overlay {
-    position: fixed; inset: 0; z-index: 2000; background: #000;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-}
-.splash-title { font-size: clamp(3rem, 12vw, 8rem); font-weight: 900; color: #fff; letter-spacing: -0.05em; text-shadow: 0 0 50px rgba(168, 85, 247, 0.5); }
-
-#main-view { opacity: 0; visibility: hidden; transition: opacity 1.5s ease; }
-#main-view.ready { opacity: 1; visibility: visible; }
-
-.tech-box {
-    width: 40px; 
-    height: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.3s;
-}
-.tech-box:hover { background: rgba(168, 85, 247, 0.2); border-color: var(--accent-purple); transform: scale(1.1) translateY(-5px); }
-
-.terminal-window {
-    margin: 0 12px;
-    font-size: 0.78rem;
-    background: rgba(8, 8, 12, 0.96);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.7);
-}
-.syntax-kw { color: #c678dd; } .syntax-str { color: #98c379; } .syntax-cmt { color: #5c6370; }
-.text-glow { text-shadow: 0 0 30px rgba(168, 85, 247, 0.5); }
-
-.skill-icon-wrap {
-    padding: 0.8rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1.25rem;
-    display: flex; align-items: center; gap: 0.8rem;
-    transition: all 0.4s;
-}
-.skill-icon-wrap:hover { padding: 0.6rem; font-size: 0.85rem ;background: rgba(168, 85, 247, 0.1); border-color: var(--accent-purple); transform: translateX(8px); }
-
-
-.headline-main {
-    font-size: clamp(2.5rem, 9vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-}
-.headline-sub {
-    font-size: clamp(1.8rem, 8vw, 3rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-}
-
-.profile-wrapper {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #8b5cf6;
-    padding: 4px;
-    position: relative;
-    box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
-}
-.profile-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #111;
-}
-.gpa-badge {
-    position: absolute;
-    bottom: 4px;
-    right: -10px;
-    background: #2563eb;
-    color: white;
-    font-size: 10px;
-    font-weight: 900;
-    padding: 6px 12px;
-    border-radius: 8px;
-    letter-spacing: 0.1em;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-.name-container h3 {
-    font-size: 1.6rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: #fff;
-    text-transform: capitalize;
-}
-
-#contact h2.text-7xl {
-    /* This overrides the Tailwind utility classes */
-    font-size: clamp(2rem, 8vw, 3rem) !important;
-    line-height: 1.1 !important;
-}
-
-.name-container p {
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: #94a3b8;
-    margin-top: 4px;
+    #contact .font-mono {
+        font-size: 0.7rem !important;
+        word-break: break-all !important;
+    }
 }
