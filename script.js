@@ -2,44 +2,33 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
 }, { threshold: 0.1 });
 
-// Smooth Planet Parallax Movement
-const planetObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const pos = entry.target.dataset.pos;
-            const planet = document.getElementById('central-planet');
-            if(planet) planet.style.left = pos + '%';
-        }
-    });
-}, { threshold: 0.15 });
-
 function startPortfolio() {
     const splash = document.getElementById('splash-overlay');
+    const main = document.getElementById('main-view');
     splash.style.opacity = '0';
     setTimeout(() => {
         splash.style.display = 'none';
-        document.getElementById('main-view').classList.add('ready');
+        main.classList.add('ready');
         document.body.style.overflow = 'auto';
         startTerminal();
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-        document.querySelectorAll('.section-trigger').forEach(el => planetObserver.observe(el));
-    }, 1200);
+    }, 1000);
 }
 
 const terminalLines = [
-    { t: "> Initializing universe... ", c: "syntax-cmt" }, { t: "het_patel.py", c: "syntax-str" }, { t: "...\n", c: "syntax-cmt" },
+    { t: "> initializing ", c: "syntax-cmt" }, { t: "het_patel.ipynb", c: "syntax-str" }, { t: "...\n", c: "syntax-cmt" },
     { t: "> ", c: "syntax-cmt" }, { t: "from", c: "syntax-kw" }, { t: " pes_university ", c: "" }, { t: "import", c: "syntax-kw" }, { t: " mca_student\n", c: "" },
-    { t: "> stack: ", c: "syntax-kw" }, { t: "python, pandas, numpy, react\n", c: "syntax-str" },
-    { t: "> mission_status: ", c: "syntax-kw" }, { t: "mastering_data_intelligence\n", c: "syntax-str" },
-    { t: "> deployment: ", c: "syntax-kw" }, { t: "active_v2.0_kernel\n", c: "syntax-str" },
+    { t: "> mission_status: ", c: "syntax-kw" }, { t: "optimizing_ai_logic\n", c: "syntax-str" },
+    { t: "> deploying: ", c: "syntax-kw" }, { t: "service_provider_sys\n", c: "syntax-str" },
     { t: "> status: ", c: "syntax-kw" }, { t: "ready_to_explore\n", c: "syntax-str" },
+    { t: "> kernel: ", c: "syntax-kw" }, { t: "active_v2.0\n", c: "syntax-str" },
     { t: "> location: ", c: "syntax-kw" }, { t: "Earth.py", c: "syntax-str" }
 ];
 
 let lineIdx = 0, charIdx = 0;
+const termEl = document.getElementById('terminal-content');
+
 function startTerminal() {
-    const termEl = document.getElementById('terminal-content');
-    if (!termEl) return;
     if (lineIdx < terminalLines.length) {
         if (charIdx === 0) {
             const span = document.createElement('span');
@@ -47,37 +36,31 @@ function startTerminal() {
             span.id = `line-${lineIdx}`;
             termEl.appendChild(span);
         }
-        document.getElementById(`line-${lineIdx}`).textContent += terminalLines[lineIdx].t[charIdx];
+        const currentLine = document.getElementById(`line-${lineIdx}`);
+        currentLine.textContent += terminalLines[lineIdx].t[charIdx];
         charIdx++;
         if (charIdx === terminalLines[lineIdx].t.length) { lineIdx++; charIdx = 0; }
         setTimeout(startTerminal, 25);
     } else {
         const cursor = document.createElement('span');
-        cursor.className = 'w-1.5 h-4 bg-purple-500 inline-block ml-1 animate-pulse align-middle';
+        cursor.className = 'w-1.5 h-3 bg-indigo-500 inline-block ml-1 animate-pulse align-middle';
         termEl.appendChild(cursor);
     }
 }
 
-const genStars = (id, count) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    let shadows = [];
-    for(let i=0; i<count; i++) shadows.push(`${Math.random()*2000}px ${Math.random()*2000}px #fff`);
-    el.style.boxShadow = shadows.join(',');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    genStars('stars-far', 600); genStars('stars-mid', 300); genStars('stars-near', 150); genStars('splash-stars', 300);
-});
-
 window.filterProjects = (category) => {
     document.querySelectorAll('.proj-filter-btn').forEach(btn => {
-        btn.className = (btn.dataset.filter === category) ? 
-        "proj-filter-btn px-8 py-3 rounded-xl text-xs font-black uppercase transition-all bg-purple-600 text-white shadow-xl" : 
-        "proj-filter-btn px-8 py-3 rounded-xl text-xs font-black uppercase transition-all text-slate-500 hover:bg-white/5";
+        btn.className = (btn.dataset.filter === category) ?
+        "proj-filter-btn px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all bg-indigo-600 text-white shadow-xl shadow-indigo-600/20" :
+        "proj-filter-btn px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all text-slate-500 hover:bg-white/5";
     });
+
     document.querySelectorAll('#project-grid .card').forEach(card => {
-        card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
     });
 };
 
@@ -91,3 +74,31 @@ window.copyToClipboard = (text, id) => {
         setTimeout(() => btn.innerHTML = original, 2000);
     }
 };
+
+// Starfield generation
+document.addEventListener('DOMContentLoaded', () => {
+    const starfield = document.getElementById('starfield');
+    if (starfield) {
+        let shadowList = '';
+        for (let i = 0; i < 200; i++) {
+            const x = Math.floor(Math.random() * 2000);
+            const y = Math.floor(Math.random() * 2000);
+            shadowList += `${x}px ${y}px #fff${i < 199 ? ', ' : ''}`;
+        }
+        starfield.style.boxShadow = shadowList;
+    }
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('glass-nav');
+            navbar.classList.remove('py-6');
+            navbar.classList.add('py-3');
+        } else {
+            navbar.classList.remove('glass-nav');
+            navbar.classList.remove('py-3');
+            navbar.classList.add('py-6');
+        }
+    });
+});
