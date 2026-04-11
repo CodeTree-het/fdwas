@@ -65,14 +65,14 @@ body {
 /* --- PARALLAX RINGED PLANET --- */
 #central-planet {
     position: fixed;
-    top: 50%;
-    left: 80%;
+    top: 30%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px; /* Reduced size for mobile stability */
-    height: 300px;
+    width: 200px; /* Reduced size for mobile stability */
+    height: 200px;
     pointer-events: none;
     visibility: visible !important;
-    opacity: 1 !important;
+    opacity: 0.25 !important;
     z-index: 0; /* Changed from 1 to 0 to stay behind UI but above background */
     display: flex !important; /* Force display */
     align-items: center;
@@ -81,8 +81,8 @@ body {
 }
 
 .planet-sphere {
-    width: 220px;
-    height: 220px;
+    width: 140px;
+    height: 140px;
     background: radial-gradient(circle at 30% 30%, #f3e8ff 0%, #a855f7 30%, #3b0764 70%, #000 100%);
     border-radius: 50%;
     box-shadow: inset -25px -25px 60px rgba(0,0,0,0.9), 0 0 60px rgba(168, 85, 247, 0.3);
@@ -92,8 +92,9 @@ body {
 
 .planet-ring-system {
     position: absolute;
-    width: 580px;
-    height: 140px;
+    width: 360px;
+    height: 90px;
+    border-width: 14px;
     border: 22px solid rgba(216, 180, 254, 0.12);
     border-radius: 50%;
     transform: rotateX(74deg) rotateY(-18deg);
@@ -108,12 +109,14 @@ body {
 }
 
 .glass-nav {
+    padding: 10px 16px;
     background-color: rgba(2, 2, 5, 0.8);
     backdrop-filter: blur(30px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card {
+    margin: 0 8px;
     background: rgba(15, 15, 22, 0.7);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -151,7 +154,8 @@ body {
 #main-view.ready { opacity: 1; visibility: visible; }
 
 .tech-box {
-    width: 48px; height: 48px;
+    width: 40px; 
+    height: 40px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 12px;
@@ -161,6 +165,8 @@ body {
 .tech-box:hover { background: rgba(168, 85, 247, 0.2); border-color: var(--accent-purple); transform: scale(1.1) translateY(-5px); }
 
 .terminal-window {
+    margin: 0 12px;
+    font-size: 0.78rem;
     background: rgba(8, 8, 12, 0.96);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.7);
@@ -176,25 +182,25 @@ body {
     display: flex; align-items: center; gap: 0.8rem;
     transition: all 0.4s;
 }
-.skill-icon-wrap:hover { background: rgba(168, 85, 247, 0.1); border-color: var(--accent-purple); transform: translateX(8px); }
+.skill-icon-wrap:hover { padding: 0.6rem; font-size: 0.85rem ;background: rgba(168, 85, 247, 0.1); border-color: var(--accent-purple); transform: translateX(8px); }
 
 
 .headline-main {
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.02em;
 }
 .headline-sub {
-    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-size: clamp(1.8rem, 8vw, 3rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
 
 .profile-wrapper {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 3px solid #8b5cf6;
     padding: 4px;
@@ -223,7 +229,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 .name-container h3 {
-    font-size: 2.25rem;
+    font-size: 1.6rem;
     font-weight: 900;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -233,7 +239,7 @@ body {
 
 #contact h2.text-7xl {
     /* This overrides the Tailwind utility classes */
-    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+    font-size: clamp(2rem, 8vw, 3rem) !important;
     line-height: 1.1 !important;
 }
 
